@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/env/env.dart';
 import '../../core/ui/helpers/loader.dart';
 import '../../core/ui/helpers/messages.dart';
+import '../../core/ui/helpers/size_extensions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
         showError('Show something error');
       }),
       body: Container(
-        child: Text(Env.instance.get('backend_base_url')),
+        child: Text(context.screenWidth.toString()),
       ),
     );
   }
