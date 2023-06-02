@@ -16,11 +16,11 @@ class LoginPage extends StatelessWidget {
         alignment: Alignment.topCenter,
         children: [
           Align(
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.center,
             child: Container(
              // margin: const EdgeInsets.only(bottom: 25),
-              height: context.screenHeight,
-              width: context.screenWidth,
+              height: context.screenShortesSide * .9,
+              width: context.screenLongestSide * .9,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/homo_2.png'),
@@ -37,58 +37,61 @@ class LoginPage extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: SingleChildScrollView(
-              child: Container(
-                margin: const EdgeInsets.only(top: 20),
-                constraints: BoxConstraints(
-                  maxWidth: context.percentWidth(screenWidth < 1300 ? .7 : .3),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      FractionallySizedBox(
-                        widthFactor: .3,
-                        child: Image.asset('assets/images/ico_ufpr2.png'),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          'Solicitar Evento',
-                          style: context.textStyles.textTitle,
+              child: Opacity(
+                opacity: .9,
+                child: Container(
+                  margin: const EdgeInsets.only(top: 20),
+                  constraints: BoxConstraints(
+                    maxWidth: context.percentWidth(screenWidth < 1300 ? .7 : .3),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FractionallySizedBox(
+                          widthFactor: .3,
+                          child: Image.asset('assets/images/ico_ufpr2.png'),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(labelText: 'Usuário'),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(labelText: 'Senha'),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 40,
-                        child: ElevatedButton(
-                          onPressed: () => {},
-                          child: const Text('Entrar'),
+                        const SizedBox(
+                          height: 20,
                         ),
-                      )
-                    ],
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            'Solicitar Evento',
+                            style: context.textStyles.textTitle,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Usuário'),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Senha'),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 40,
+                          child: ElevatedButton(
+                            onPressed: () => {},
+                            child: const Text('Entrar'),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
