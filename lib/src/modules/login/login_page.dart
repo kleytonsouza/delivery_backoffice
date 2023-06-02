@@ -11,31 +11,34 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = context.screenWidth;
     return Scaffold(
-      backgroundColor: context.colors.black,
+      backgroundColor: context.colors.primary,
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: context.screenShortesSide * .5,
+             // margin: const EdgeInsets.only(bottom: 25),
+              height: context.screenHeight,
+              width: context.screenWidth,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/lanche.png'),
-                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/homo_2.png'),
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
           ),
-          Container(
-            width: context.screenShortesSide * .5,
-            padding: EdgeInsets.only(top: context.percentHeight(.10)),
-            child: Image.asset('assets/images/logo.png'),
-          ),
+          // Container(
+          //   width: context.screenShortesSide * .2,
+          //   padding: EdgeInsets.only(top: context.percentHeight(.10)),
+          //   child: Image.asset('assets/images/logo.png'),
+          // ),
           Align(
             alignment: Alignment.center,
             child: SingleChildScrollView(
               child: Container(
+                margin: const EdgeInsets.only(top: 20),
                 constraints: BoxConstraints(
                   maxWidth: context.percentWidth(screenWidth < 1300 ? .7 : .3),
                 ),
@@ -50,7 +53,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       FractionallySizedBox(
                         widthFactor: .3,
-                        child: Image.asset('assets/images/logo.png'),
+                        child: Image.asset('assets/images/ico_ufpr2.png'),
                       ),
                       const SizedBox(
                         height: 20,
@@ -58,7 +61,7 @@ class LoginPage extends StatelessWidget {
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          'Login',
+                          'Solicitar Evento',
                           style: context.textStyles.textTitle,
                         ),
                       ),
@@ -66,7 +69,7 @@ class LoginPage extends StatelessWidget {
                         height: 20,
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(labelText: 'E-mail'),
+                        decoration: const InputDecoration(labelText: 'Usuário'),
                       ),
                       const SizedBox(
                         height: 20,
