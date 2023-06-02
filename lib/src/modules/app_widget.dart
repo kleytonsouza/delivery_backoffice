@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
     Modular.setInitialRoute('/login');
     
     return MaterialApp.router(
-      title: 'Flutter Web',
+      title: 'Eventos UFPR',
       theme: ThemeConfig.theme,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,

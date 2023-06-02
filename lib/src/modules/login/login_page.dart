@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
               width: context.screenLongestSide * .9,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/homo_2.png'),
+                  image: AssetImage('assets/images/homo_4.png'),
                   fit: BoxFit.fill,
                 ),
               ),
