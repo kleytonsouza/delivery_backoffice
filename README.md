@@ -1,4 +1,4 @@
-# delivery_backoffice
+# ufpr_event
 
 A new Flutter project.
 
