@@ -50,6 +50,22 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
   }
 
   @override
+  void dispose() {
+    emailEC.dispose();
+    passwordEC.dispose();
+    statusReactionDisposer();
+    super.dispose();
+  }
+
+
+  void _formSubmit() {
+    final formValid = formKey.currentState?.validate() ?? false;
+    if (formValid) {
+      controller.login(emailEC.text, passwordEC.text);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final screenWidth = context.screenWidth;
     return Scaffold(
@@ -73,11 +89,6 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                 ),
               ),
             ),
-            // Container(
-            //   width: context.screenShortesSide * .2,
-            //   padding: EdgeInsets.only(top: context.percentHeight(.10)),
-            //   child: Image.asset('assets/images/logo.png'),
-            // ),
             Align(
               alignment: Alignment.center,
               child: SingleChildScrollView(
@@ -117,6 +128,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                           ),
                           TextFormField(
                             controller: emailEC,
+                            onFieldSubmitted: (_) => _formSubmit(),
                             decoration:
                                 const InputDecoration(labelText: 'Usuário'),
                             validator: Validatorless.multiple([
@@ -129,6 +141,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                           ),
                           TextFormField(
                             obscureText: true,
+                            onFieldSubmitted: (_) => _formSubmit(),
                             controller: passwordEC,
                             validator:
                                 Validatorless.required('Senha Obrigatória'),
@@ -142,16 +155,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                             width: double.infinity,
                             height: 40,
                             child: ElevatedButton(
-                              onPressed: () {
-                                final formValid =
-                                    formKey.currentState?.validate() ?? false;
-                                if (formValid) {
-                                  controller.login(
-                                    emailEC.text,
-                                    passwordEC.text,
-                                  );
-                                }
-                              },
+                              onPressed: _formSubmit,
                               child: const Text('Entrar'),
                             ),
                           )

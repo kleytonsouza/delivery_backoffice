@@ -22,10 +22,10 @@ abstract class LoginControllerBase with Store {
   @readonly
   var _loginStatus = LoginStateStatus.initial;
 
-  LoginControllerBase(this._loginService);
-
   @readonly
   String? _errorMessage;
+  
+  LoginControllerBase(this._loginService);
 
   @action
   Future<void> login(String email, String password) async {
@@ -39,6 +39,7 @@ abstract class LoginControllerBase with Store {
     } catch (e, s) {
       log('Erro ao realizar login', error: e, stackTrace: s);
       _errorMessage = 'Tente novamente, erro desconhecido';
+      _loginStatus = LoginStateStatus.error;
     }
   }
 }
