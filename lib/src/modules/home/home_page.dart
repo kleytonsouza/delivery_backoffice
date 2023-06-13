@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
   Widget build(BuildContext context) {
     return BaseLayout(
       body: Container(
-        color: Colors.blueGrey,
         child: Container(
           child: Column(
             children: [
